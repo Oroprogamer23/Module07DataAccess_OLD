@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module07DataAccess.View.ViewPersonal"
+             Title="ViewPersonal"
+             BackgroundColor="#E0F7FA">
+
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <!-- Title Section -->
+        <Label Text="Personal Information" 
+               FontSize="24"
+               TextColor="#01579B"  
+               HorizontalOptions="Center"
+               FontAttributes="Bold"/>
+
+            <!-- ListView Section -->
+            <Frame HasShadow="True" CornerRadius="10" BorderColor="#0288D1" Padding="10" BackgroundColor="#B3E5FC">
+                <ListView ItemsSource="{Binding PersonalList}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame HasShadow="False" BackgroundColor="#E1F5FE" Padding="10" Margin="5">
+                                    <StackLayout>
+                                        <Label Text="{Binding EmployeeID}" TextColor="#01579B" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Name}" TextColor="#0288D1"/>
+                                        <Label Text="{Binding Address}" TextColor="#0288D1"/>
+                                        <Label Text="{Binding email}" TextColor="#0288D1"/>
+                                        <Label Text="{Binding ContactNo}" TextColor="#0288D1"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+
+            <!-- Button Section -->
+            <Button Text="Load Data" 
+                TextColor="White" 
+                BackgroundColor="#0277BD" 
+                CornerRadius="20"
+                FontAttributes="Bold"/>
+
+            <!-- Connection Status Section -->
+            <Label x:Name="ConnectionStatusLabel"
+               Text="{Binding StatusMessage}"
+               FontSize="18"
+               TextColor="#01579B"
+               HorizontalOptions="Center"/>
+    </VerticalStackLayout>
+</ContentPage>
